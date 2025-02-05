@@ -4,8 +4,8 @@
   "main": "index.js",
   "type": "module",
   "scripts": {
-    "start": "node ./dist/index.js",
-    "start:dev": "cross-env NODE_ENV=dev DEBUG=app* node --watch --env-file=.env ./dist/index.js",
+    "start": "node dist/index.js",
+    "start:dev": "cross-env NODE_ENV=dev DEBUG=demo* node --watch --env-file=.env ./dist/index.js",
     "build": "tsc -w",
     "test": "vitest run",
     "test:c": "vitest run --coverage",
@@ -21,7 +21,7 @@
   "devDependencies": {
     "@eslint/js": "^9.19.0",
     "@types/debug": "^4.1.12",
-    "@types/minimist": "^1.2.5",
+    "@types/express": "^5.0.0",
     "@types/node": "^22.12.0",
     "eslint": "^9.19.0",
     "globals": "^15.14.0",
@@ -33,6 +33,7 @@
   "dependencies": {
     "cross-env": "^7.0.3",
     "debug": "^4.4.0",
-    "dotenv": "^16.4.7"
+    "dotenv": "^16.4.7",
+    "express": "^4.21.2"
   }
 }
