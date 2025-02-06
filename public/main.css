@@ -1,7 +1,9 @@
 body {
-  display: grid;
-  grid-template-rows: auto 1fr auto;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
   min-width: 260px;
+  background-color: rgb(232, 234, 234);
 }
 
 nav {
@@ -9,34 +11,26 @@ nav {
   margin: 0 auto;
 }
 
-header {
-  padding-block: var(--space);
-  padding-inline: var(--space-double);
-  color: var(--color-secondary-gray);
-  background-color: var(--color-secondary-background-gray);
+/* Estilo básico para el menú de navegación */
+header nav ul {
+  list-style: none;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  padding: 0;
+  margin: 0;
+}
 
-  .menu-header a {
-    display: flex;
-    gap: var(--space);
-    justify-content: center;
-  }
+header nav ul li {
+  margin: 0 15px; /* Espacio entre los elementos */
+  position: relative;
+}
 
-  nav {
-    ul {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: space-between;
-      align-items: center;
-    }
-
-    [class*='fa-'] {
-      font-size: 2rem;
-    }
-  }
-
-  .menu-tablet {
-    display: none;
-  }
+header nav ul li a {
+  text-decoration: none;
+  color: #333;
+  padding: 10px 15px;
+  display: block;
 }
 
 .header-brown {

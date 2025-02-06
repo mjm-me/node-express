@@ -2,7 +2,7 @@ import { createServer } from 'node:http';
 import type { ServerResponse } from 'node:http';
 import 'dotenv/config';
 import createDebug from 'debug';
-import { HttpError } from './Http-error.js';
+import { HttpError } from './http-error.js';
 import { createHtmlString } from './template.js';
 
 import { app } from './app.js';

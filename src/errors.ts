@@ -1,6 +1,6 @@
 import { Request, Response, NextFunction } from 'express';
 import createDebug from 'debug';
-import { HttpError } from './Http-error';
+import { HttpError } from './http-error.js';
 
 const debug = createDebug('demo:errorManager');
 

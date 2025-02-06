@@ -4,12 +4,14 @@ import createDebug from 'debug';
 import morgan from 'morgan';
 import cors from 'cors';
 import {
-  getController,
+  getIndexController,
+  getAboutController,
   notFoundController,
   postController,
 } from './controllers.js';
 import { logger } from './middleware.js';
 import { errorManager } from './errors.js';
+import { usersRouter } from './routers/user.routers.js';
 
 export const app = express();
 const debug = createDebug('demo:app');
@@ -56,11 +58,14 @@ app.use(express.static(publicPath));
 // });
 //
 
-app.get('/about', getController);
-app.post('*', postController);
-app.patch('/');
-app.put('/');
-app.delete('/');
+app.get('/', getIndexController);
+app.get('/about', getAboutController);
+app.get('/contacts', getIndexController);
+app.post('/contacts', postController);
+app.get('/portfolio', getIndexController);
+
+app.use('/api/users', usersRouter);
+
 app.use('*', notFoundController);
 
 app.use(errorManager);
