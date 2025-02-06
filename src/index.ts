@@ -2,12 +2,12 @@ import { createServer } from 'node:http';
 import type { ServerResponse } from 'node:http';
 import 'dotenv/config';
 import createDebug from 'debug';
-import { HtmlError } from './error.js';
+import { HttpError } from './Http-error.js';
 import { createHtmlString } from './template.js';
 
 import { app } from './app.js';
 
-const debug = createDebug('app:server');
+const debug = createDebug('demo:server');
 debug('Iniciando servidor...');
 const PORT = process.env.PORT || 3000;
 
@@ -27,8 +27,8 @@ const listenManager = () => {
   debug(`Servidor escuchando en ${bind}`);
 };
 
-const errorManager = (error: HtmlError, response: ServerResponse) => {
-  if ('status'! in error) {
+const errorManager = (error: Error | HttpError, response: ServerResponse) => {
+  if (!('status' in error)) {
     error = {
       ...error,
       statusCode: 500,
@@ -36,9 +36,10 @@ const errorManager = (error: HtmlError, response: ServerResponse) => {
     };
   }
 
-  debug(error.message, error.statusCode, error.status);
+  const publicMessage = `Error: ${error.statusCode} ${error.status}`;
+  debug(publicMessage, error.message);
 
-  const html = createHtmlString('Error', 'Error', error.message);
+  const html = createHtmlString('Error | Node Server', 'Error', publicMessage);
   response.statusCode = error.statusCode;
   response.statusMessage = error.status;
   response.setHeader('Content-Type', 'text/html; charset=utf-8');

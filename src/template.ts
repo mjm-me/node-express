@@ -1,7 +1,8 @@
-export class createHtmlString extends template 
-
-
-const createHtmlString = (title: string, header: string, content?: string) => `
+export const createHtmlString = (
+  title: string,
+  header: string,
+  content?: string,
+) => `
     <!DOCTYPE html>
     <html lang="es">
 
