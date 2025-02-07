@@ -5,6 +5,7 @@ import morgan from 'morgan';
 import cors from 'cors';
 import {
   getIndexController,
+  getPortfolioController,
   getAboutController,
   notFoundController,
   postController,
@@ -62,7 +63,7 @@ app.get('/', getIndexController);
 app.get('/about', getAboutController);
 app.get('/contacts', getIndexController);
 app.post('/contacts', postController);
-app.get('/portfolio', getIndexController);
+app.get('/portfolio', getPortfolioController);
 
 app.use('/api/users', usersRouter);
 

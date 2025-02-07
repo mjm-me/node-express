@@ -1,6 +1,7 @@
 import type { Request, Response } from 'express';
 import createDebug from 'debug';
 import { renderIndexHtml } from './views/index-html.js';
+import { renderPortfolioHtml } from './views/portfolio-html.js';
 import { renderAboutHtml } from './views/about-html.js';
 
 export const getIndexController = (_req: Request, res: Response) => {
@@ -8,6 +9,13 @@ export const getIndexController = (_req: Request, res: Response) => {
   debug('Petición recibida');
   res.setHeader('Content-Type', 'text/html; charset=utf-8');
   res.send(renderIndexHtml());
+};
+
+export const getPortfolioController = (_req: Request, res: Response) => {
+  const debug = createDebug('demo:getController');
+  debug('Petición recibida');
+  res.setHeader('Content-Type', 'text/html; charset=utf-8');
+  res.send(renderPortfolioHtml());
 };
 
 export const getAboutController = (_req: Request, res: Response) => {

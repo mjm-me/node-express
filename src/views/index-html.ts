@@ -1,10 +1,11 @@
 // import { html } from 'lit-html';
 import { createHeader } from './partials/header.js';
 import { createHead } from './partials/head.js';
+import { createDialogNav } from './partials/dialog-nav.js';
 import { createFooter } from './partials/footer.js';
 
 export const renderIndexHtml = () => {
-  const title = 'Inicio | Cliente de Express';
+  const title = 'Inicio | Demo Express';
   const pageTitle = 'Cliente de Express';
 
   return `
@@ -13,7 +14,7 @@ export const renderIndexHtml = () => {
             ${createHead(title)}
             <body>
                 ${createHeader(pageTitle)}
-
+                ${createDialogNav()}
                 <main>
                     <section>
                         <button>Cargar datos</button>
